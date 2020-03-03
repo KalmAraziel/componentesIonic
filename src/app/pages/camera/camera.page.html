@@ -1,17 +1,26 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Camara</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header titulo="Cámara"></app-header>
 
 <ion-content padding>
   
   <ion-button (click)="abrirCamara()" expand="block" class="ios button button-block button-solid ion-activatable ion-focusable hydrated">
     <ion-icon name="camera"></ion-icon>
-    Tomar fotografia
+    Tomar fotografía
   </ion-button>
-  <ion-img [src]="image" *ngIf="image" alt=""></ion-img> 
+  
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let img  of images; let i = index"> 
+      <ion-card>
+        <img [src]="img | imageSanatizer " alt="">
+      </ion-card>      
+    </ion-slide>   
+  </ion-slides>
+
+  <ion-row>
+    <ion-col size="3" *ngFor="let img  of images">
+      <ion-card>
+        <img [src]="img | imageSanatizer " alt="">
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  
 </ion-content>
