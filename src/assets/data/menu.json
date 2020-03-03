@@ -121,7 +121,8 @@
     },
     {
       "icon": "cog",
-      "name": "Tabs"
+      "name": "Tabs",
+      "redirectTo": "/tabs"
     }
     
   ]
